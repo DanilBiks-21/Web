@@ -1,0 +1,29 @@
+<script>
+    
+    let number1 = prompt("First number", "");
+    let number2 = prompt("Srcond number", "");
+    let operation = prompt("Operation", "");
+    function Calculate(numb1, numb2, operator)
+    {   let numb3;
+       
+        if (operator=="+")
+        {
+            numb3 = +numb1 + +numb2;
+        }
+        if(operator=="-")
+        {
+            numb3 = numb1-numb2;
+        }
+        if(operator=="/")
+        {
+            numb3 = numb1/numb2;
+        }
+        if(operator=="*")
+        {
+            numb3 = numb1*numb2;
+        }
+        console.log(numb1, operator, numb2, "=", numb3)
+
+    }
+    Calculate(number1, number2, operation);
+</script>

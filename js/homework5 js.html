@@ -1,0 +1,41 @@
+
+<script>
+
+        function createNewUser() // создание функции
+    {
+           
+           let firstName1 =prompt("What is your name?", "Ivan");
+           let lastName1 = prompt("What is your last name?", "Kravchenko");
+           let birthday1 = prompt("Insert your birthdate:", "13.03.1992")
+       let newUser =
+        {    firstName:firstName1,
+            lastName: lastName1,
+            birthday: birthday1,
+            getLogin()
+            {
+                return(newUser.firstName[0].toLowerCase()+newUser.lastName.toLowerCase()) // метод для создания нужной строки
+            },
+            getAge()
+            {
+                let date = new Date();
+                return (+date.getFullYear() -  +newUser.birthday.substring(6, 10));
+            }, 
+            getPassword()
+            {
+                return (newUser.firstName[0].toUpperCase()+newUser.lastName.toLowerCase()+newUser.birthday.substring(6, 10))
+            }
+        };
+        
+       console.log("getLogin: " + newUser.getLogin());// вывод
+       console.log("getAge: " + newUser.getAge()) ;
+       console.log("getPassword: " + newUser.getPassword()) ;
+    }
+
+    createNewUser(); // вызов
+
+
+
+
+</script>
+
+ 

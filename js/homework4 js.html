@@ -1,0 +1,26 @@
+
+<script>
+
+        function createNewUser() // создание функции
+    {
+           
+           let firstName1 =prompt("What is your name?", "");
+           let lastName1 = prompt("What is your last name?", "");
+       let newUser =
+        {    firstName:firstName1,
+            lastName: lastName1,
+            getLogin()
+            {
+                return(newUser.firstName[0].toLowerCase()+newUser.lastName.toLowerCase()) // метод для создания нужной строки
+            }
+        };
+    
+       console.log(newUser.getLogin());// вывод
+    }
+
+    createNewUser(); // вызов
+
+
+</script>
+
+ 

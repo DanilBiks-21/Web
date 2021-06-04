@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <style>.none {
+        display: none;
+    }
+    .redOutline {
+        outline: red 2px solid;
+    }
+    input:focus {
+        outline: green 2px solid;
+    }
+    
+    .content {
+        margin-top: 10px;
+    }
+    span {
+        display: inline-block;
+        padding: 4px 10px 5px 10px;
+        font-size: 13px;
+        line-height: 15px;
+        border: 1px solid #d2d2d2;
+        border-radius: 40px;
+        cursor: pointer;
+    }
+    span::after {
+        border: 1px solid #d2d2d2;
+        border-radius: 40px;
+        content: 'x';
+        margin-left: 10px;
+        padding: 1px 5px ;
+    }</style>
+
+    
+</head>
+
+<body>
+
+<div id="spanList"></div>
+<div class="content">
+    <label for="price">Price: </label>
+    <input type="text" id="price">
+    <p id="tip"></p>
+</div>
+
+<script>document.getElementById("price").onblur = function () {
+    let tempPrice = +price.value;
+    price.innerText = tempPrice;
+    if (tempPrice < 0) {
+        document.getElementById('tip').innerText = `Please enter correct price`;
+        document.getElementById('price').classList.add('redOutline');
+    } else {
+        document.getElementById('price').classList.remove('redOutline');
+        document.getElementById('tip').innerText = ``;
+        let spanList = document.getElementById('spanList');
+        let spanNode = document.createElement('span');
+        spanNode.setAttribute('onclick', `removespan(this);`);
+        let textNode = document.createTextNode(`Текущая цена: ${tempPrice}`);
+        spanNode.appendChild(textNode);
+        spanList.appendChild(spanNode);
+        console.log(tempPrice);
+    }
+};
+
+let removespan = function(span) {
+    span.parentNode.removeChild(span);
+};</script>
+</body>
+
+</html>
